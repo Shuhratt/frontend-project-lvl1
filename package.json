@@ -1,15 +1,15 @@
 {
-  "name": "frontend-project-lvl1",
+  "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "",
+  "description": "https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000029230-Go-run-configuration-using-a-Makefile",
   "main": "index.js",
+  "type": "module",
+  "bin": {
+    "brain-games": "brain-games.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "bin": {
-    "brain-games": "bin/brain-games.js"
-  },
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Shuhratt/frontend-project-lvl1.git"
