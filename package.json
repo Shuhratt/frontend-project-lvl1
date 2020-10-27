@@ -1,7 +1,7 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000029230-Go-run-configuration-using-a-Makefile",
+  "description": "",
   "main": "index.js",
   "type": "module",
   "bin": {
