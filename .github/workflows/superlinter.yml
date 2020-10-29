@@ -2,9 +2,7 @@ name: Super-Linter
 
 # Run this workflow every time a new commit pushed to your repository
 # Trigger the workflow on push or pull request
-on:
-  - push
-  - pull_request
+on: [push, pull_request]
 
 jobs:
   build:
@@ -13,11 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checks out a copy of your repository on the ubuntu-latest machine
+        # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Run linter
         # Run Linter
+      - name: Run linter
         run: |
           make lint
