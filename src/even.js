@@ -16,4 +16,6 @@ export default async () => {
   } else {
     console.log('Answer:', answer === false ? answer : '');
   }
+
+  // npm list -g --depth=0
 };
