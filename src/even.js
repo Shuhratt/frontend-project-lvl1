@@ -9,11 +9,11 @@ export default async () => {
   const isEven = (count) => (count % 2 === 0);
 
   console.log(`Question: ${randomCount}`);
-  let answer = await promptly.prompt('Answer:');
+  const answer = await promptly.confirm('Answer:');
 
   if (isEven(randomCount)) {
-    console.log(answer == 'yes')
-  } else{
-    console.log(answer == 'no')
+    console.log('Answer:', answer === true ? answer : '');
+  } else {
+    console.log('Answer:', answer === false ? answer : '');
   }
 };
