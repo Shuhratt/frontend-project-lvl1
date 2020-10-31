@@ -12,26 +12,19 @@ export default async () => {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   try {
-    for (let i = 1; i < 3; i += 1) {
+    for (let i = 1; i <= 3; i += 1) {
       //  await delayedLog(item);
 
       const randomCount = (Math.random() * 10).toFixed(0);
       console.log(`Question: ${randomCount}`);
       const answer = await promptly.prompt('Your answer: ', { retry: false });
 
-      if (isEven(randomCount) === 'yes') {
-        if (answer === 'yes') {
-          console.log('Correct!');
-        } else {
-          message(answer, isEven(randomCount));
-        }
-      } else if (isEven(randomCount) === 'no') {
-        if (answer === 'no') {
-          console.log('Correct!');
-        } else {
-          message(answer, isEven(randomCount));
-        }
+      if (answer === isEven(randomCount) ) {
+        console.log('Correct!');
+      } else {
+        message(answer, isEven(randomCount));
       }
+
     }
 
     await console.log(`Congratulations, ${name}!`);
