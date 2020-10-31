@@ -14,17 +14,15 @@ export default async () => {
   try {
     for (let i = 1; i <= 3; i += 1) {
       //  await delayedLog(item);
-
-      const randomCount = (Math.random() * 10).toFixed(0);
+      const randomCount = (Math.random() * 100).toFixed(0);
       console.log(`Question: ${randomCount}`);
       const answer = await promptly.prompt('Your answer: ', { retry: false });
 
-      if (answer === isEven(randomCount) ) {
+      if (answer === isEven(randomCount)) {
         console.log('Correct!');
       } else {
         message(answer, isEven(randomCount));
       }
-
     }
 
     await console.log(`Congratulations, ${name}!`);
