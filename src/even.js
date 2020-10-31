@@ -1,41 +1,35 @@
 import promptly from 'promptly';
 
+const isEven = (count) => (count % 2 === 0);
+
 const validator =  (value) => {
-  if(value !== 'yes'){
-    throw new Error('"yes" is wrong answer ;(. Correct answer was "no".'); // "да" - это неправильный ответ; (правильный ответ был "нет"
-  } else{
+  if(value == 'yes'){
     console.log(`Correct!`);
+  } else {
+    throw new Error('"yes" is wrong answer ;(. Correct answer was "no".'); // "да" - это неправильный ответ; (правильный ответ был "нет"
   }
+
 };
 
 export default async () => {
   const name = await promptly.prompt('May I have your name?');
-  let userAnswers = []
   console.log(`Hello, ${name}!`);
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
-  const randomCount = (Math.random() * 10).toFixed(0) || 1;
-  const isEven = (count) => (count % 2 === 0);
-
     try {
-      if(userAnswers.length === 3){
-
-      }
-      console.log(`Question: ${randomCount}`);
-
-      if (isEven(randomCount)) {
+      let i = 1
+      while (i <= 3) {
+        let randomCount = (Math.random() * 10).toFixed(0);
+        console.log(`Question: ${randomCount}`);
         const answerEvenTrue = await promptly.prompt('Your answer: ', { validator, retry: false });
-      } else {
-
+        i++
       }
-
+      await console.log(`Congratulations, ${name}!`)
 
     } catch (err) {
       console.error(`${err.message}`);
       console.error(`Let\'s try again, ${name}!`)
     }
-
-
 
 
   // npm list -g --depth=0
