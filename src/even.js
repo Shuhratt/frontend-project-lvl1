@@ -30,7 +30,7 @@ export default async () => {
         messageError(answer, isEven(randomCount));
       }
 
-      i++;
+      i += 1;
     }
     await console.log(`Congratulations, ${name}!`);
   } catch (err) {
