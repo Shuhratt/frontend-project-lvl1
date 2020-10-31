@@ -2,8 +2,8 @@ import promptly from 'promptly';
 
 const isEven = (count) => (count % 2 === 0 ? 'yes' : 'no');
 
-const messageError = (answer, answerRight) => {
-  throw new Error(`"${answer}" is wrong answer ;(. Correct answer was "${answerRight}".`); // "да" - это неправильный ответ ;(. правильным ответом было "нет".
+const message = (answerUser, answerRight) => {
+  throw new Error(`"${answerUser}" is wrong answer ;(. Correct answer was "${answerRight}".`); // "nn" - это неправильный ответ ;(. правильным ответом было "nn".
 };
 
 export default async () => {
@@ -12,8 +12,9 @@ export default async () => {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   try {
-    let i = 1;
-    while (i <= 3) {
+    for (let i = 1; i < 3; i += 1) {
+      //  await delayedLog(item);
+
       const randomCount = (Math.random() * 10).toFixed(0);
       console.log(`Question: ${randomCount}`);
       const answer = await promptly.prompt('Your answer: ', { retry: false });
@@ -22,16 +23,17 @@ export default async () => {
         if (answer === 'yes') {
           console.log('Correct!');
         } else {
-          messageError(answer, isEven(randomCount));
+          message(answer, isEven(randomCount));
         }
-      } else if (answer === 'no') {
-        console.log('Correct!');
-      } else {
-        messageError(answer, isEven(randomCount));
+      } else if (isEven(randomCount) === 'no') {
+        if (answer === 'no') {
+          console.log('Correct!');
+        } else {
+          message(answer, isEven(randomCount));
+        }
       }
-
-      i += 1;
     }
+
     await console.log(`Congratulations, ${name}!`);
   } catch (err) {
     console.error(`${err.message}`);
