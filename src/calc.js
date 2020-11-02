@@ -4,14 +4,13 @@ const message = (answerUser, answerRight) => {
   throw new Error(`"${answerUser}" is wrong answer ;(. Correct answer was "${answerRight}".`); // "nn" - это неправильный ответ ;(. правильным ответом было "nn".
 };
 
-const caseStudy = (first, second, character) => {
-  return `${first} ${character} ${second}`
-}
+const chars = ['+', '-', '*'];
 
-const chars = ['+','-','*']
-
-
-
+const caseStudy = {
+  '+': (a, b) => a + b,
+  '-': (a, b) => a - b,
+  '*': (a, b) => a * b,
+};
 
 export default async () => {
   const name = await promptly.prompt('May I have your name?');
@@ -20,21 +19,23 @@ export default async () => {
 
   try {
     for (let i = 1; i <= 3; i += 1) {
+      const randomCount = () => Math.floor(Math.random() * 10);
 
-      const randomCount = () => {
-        return (Math.random() * 100).toFixed(0)
-      };
+      const first = randomCount();
+      const second = randomCount();
 
-      const randomChar = chars[Math.floor(Math.random() * chars.length)]
+      const answerRight = () => `${caseStudy[randomChar](first, second)}`;
+      const randomChar = chars[Math.floor(Math.random() * chars.length)];
 
-      console.log(`Question: ${caseStudy(randomCount(), randomChar, randomCount() )}`);
+      console.log(`Question: ${first} ${randomChar} ${second}`);
+
       const answer = await promptly.prompt('Your answer: ', { retry: false });
 
-      // if (answer === isEven(randomCount)) {
-      //   console.log('Correct!');
-      // } else {
-      //   message(answer, isEven(randomCount));
-      // }
+      if (answer === answerRight) {
+        console.log('Correct!');
+      } else {
+        message(answer, answerRight());
+      }
     }
 
     await console.log(`Congratulations, ${name}!`);
