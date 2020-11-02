@@ -1,3 +1,6 @@
 #!/usr/bin/env node
 
-console.log('Welcome to the Brain Games! 3');
+import calc from '../src/calc.js';
+
+console.log('Welcome to the Brain Games!');
+calc();
