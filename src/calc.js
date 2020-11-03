@@ -21,17 +21,17 @@ export default async () => {
     for (let i = 1; i <= 3; i += 1) {
       const randomCount = () => Math.floor(Math.random() * 10);
 
-    //core
+      // core
       const first = randomCount();
       const second = randomCount();
       const randomChar = chars[Math.floor(Math.random() * chars.length)];
       const answerRight = () => Number(caseStudy[randomChar](first, second));
       console.log(`Question: ${first} ${randomChar} ${second}`);
-    //end core
+      // end core
 
       const answer = await promptly.prompt('Your answer: ', { retry: false });
 
-    //checking
+      // checking
       if (Number(answer) === answerRight()) {
         console.log('Correct!');
       } else {
