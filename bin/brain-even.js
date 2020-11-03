@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 
-import even from '../src/even.js';
+import { beginGames, coreGames, coreEven } from '../src/index.js';
 
-console.log('Welcome to the Brain Games!');
-even();
+beginGames('Answer "yes" if the number is even, otherwise answer "no".');
+// coreGames(coreEven())
+
+
+

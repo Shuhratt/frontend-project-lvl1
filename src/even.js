@@ -2,7 +2,7 @@ import promptly from 'promptly';
 
 const isEven = (count) => (count % 2 === 0 ? 'yes' : 'no');
 
-const message = (answerUser, answerRight) => {
+const messageError = (answerUser, answerRight) => {
   throw new Error(`"${answerUser}" is wrong answer ;(. Correct answer was "${answerRight}".`); // "nn" - это неправильный ответ ;(. правильным ответом было "nn".
 };
 
@@ -13,15 +13,19 @@ export default async () => {
 
   try {
     for (let i = 1; i <= 3; i += 1) {
-      const randomCount = (Math.random() * 100).toFixed(0);
-      console.log(`Question: ${randomCount}`);
-      const answer = await promptly.prompt('Your answer: ', { retry: false });
+    //core
+      const randomCount = () => Math.floor(Math.random() * 10);
+      console.log(`Question: ${randomCount()}`);
+    //end core
 
-      if (answer === isEven(randomCount)) {
+      const answer = await promptly.prompt('Your answer: ', { retry: false });
+    //checking
+      if (answer === isEven(randomCount())) {
         console.log('Correct!');
       } else {
-        message(answer, isEven(randomCount));
+        message(answer, isEven(randomCount()));
       }
+    //end checking
     }
 
     await console.log(`Congratulations, ${name}!`);
