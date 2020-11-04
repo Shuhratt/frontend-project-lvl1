@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-console.log('Welcome to the Brain Games!');
+import { coreGames, conditionGamesGcd } from '../src/index.js';
+
+coreGames('Find the greatest common divisor of given numbers.', conditionGamesGcd);

@@ -15,7 +15,7 @@ const checking = (answerUser, answerRight) => {
 };
 
 // Рандомное число
-const randomCount = () => Math.floor(Math.random() * 10);
+const randomCount = () => Math.floor(Math.random() * 100);
 
 // Четное ли  число для brain-games
 const isEven = (count) => (count % 2 === 0 ? 'yes' : 'no');
@@ -62,7 +62,36 @@ export const conditionGamesCalc = async () => {
   const second = randomCount();
   const randomChar = chars[Math.floor(Math.random() * chars.length)];
   const answerRight = () => Number(caseStudy[randomChar](first, second));
+
   console.log(`Question: ${first} ${randomChar} ${second}`);
   const answer = await promptly.prompt('Your answer: ', { retry: false });
+
   checking(Number(answer), answerRight());
+};
+
+// Оболочка игры brain-gcd
+
+const gcd = (first, second) => {
+  const maxCount = Math.max(first, second);
+  const listAllCount = [];
+
+  for (let i = 1; i <= maxCount; i += 1) {
+    if (first % i === 0 && second % i === 0) {
+      listAllCount.push(i);
+    }
+  }
+
+  return Number(Math.max(...listAllCount));
+};
+
+export const conditionGamesGcd = async () => {
+  const first = randomCount();
+  const second = randomCount();
+
+  const answerRightGcd = gcd(first, second);
+
+  console.log(`Question: ${first} ${second}`);
+  const answer = await promptly.prompt('Your answer: ', { retry: false });
+
+  checking(Number(answer), answerRightGcd);
 };
