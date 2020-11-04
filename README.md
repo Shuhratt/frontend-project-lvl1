@@ -5,10 +5,14 @@ brain-even
 [![asciicast](https://asciinema.org/a/369636.svg)](https://asciinema.org/a/369636)
 brain-calc
 [![asciicast](https://asciinema.org/a/369829.svg)](https://asciinema.org/a/369829)
+brain-gcd
+[![asciicast](https://asciinema.org/a/370385.svg)](https://asciinema.org/a/370385)
+
 <!-- 
 npm install npm -g
 Процесс выполнения этого будет устанавливать все необходимые каталоги.
 после npm link (От админ консоль)
+если новая ссылка появилась в bin то npm unlink, после npm link 
 
 https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000029230-Go-run-configuration-using-a-Makefile 
 https://overcoder.net/q/7131/nodejs-%D0%BE%D1%88%D0%B8%D0%B1%D0%BA%D0%B0-windows-enoent-%D1%81%D1%82%D0%B0%D1%82%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0-c-users-rt-appdata-roaming-npm
