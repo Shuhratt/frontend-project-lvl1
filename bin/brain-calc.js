@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import calc from '../src/calc.js';
+import { coreGames, conditionGamesCalc } from '../src/index.js';
 
-console.log('Welcome to the Brain Games!');
-calc();
+coreGames('What is the result of the expression?', conditionGamesCalc);

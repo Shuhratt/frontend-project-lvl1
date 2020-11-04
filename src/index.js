@@ -1,24 +1,24 @@
 import promptly from 'promptly';
 
 // Сообщение об ошибке
-function messageError(answerUser, answerRight) {
+const messageError = (answerUser, answerRight) => {
   throw new Error(`"${answerUser}" is wrong answer ;(. Correct answer was "${answerRight}".`); // "nn" - это неправильный ответ ;(. правильным ответом было "nn".
-}
+};
+
+// Проверка ответа
+const checking = (answerUser, answerRight) => {
+  if (answerUser === answerRight) {
+    console.log('Correct!');
+  } else {
+    messageError(answerUser, answerRight);
+  }
+};
 
 // Рандомное число
 const randomCount = () => Math.floor(Math.random() * 10);
 
 // Четное ли  число для brain-games
 const isEven = (count) => (count % 2 === 0 ? 'yes' : 'no');
-
-// Проверка ответа
-const checking = (answer, answerRight) => {
-  if (answer === answerRight) {
-    console.log('Correct!');
-  } else {
-    messageError(answer, answerRight);
-  }
-};
 
 // Ядро игры
 export const coreGames = async (textRules, conditions) => {
@@ -46,4 +46,23 @@ export const conditionGamesEven = async () => {
   console.log(`Question: ${count}`);
   const answer = await promptly.prompt('Your answer: ', { retry: false });
   checking(answer, countEven);
+};
+
+// Оболочка игры brain-calc
+const chars = ['+', '-', '*'];
+
+const caseStudy = {
+  '+': (a, b) => a + b,
+  '-': (a, b) => a - b,
+  '*': (a, b) => a * b,
+};
+
+export const conditionGamesCalc = async () => {
+  const first = randomCount();
+  const second = randomCount();
+  const randomChar = chars[Math.floor(Math.random() * chars.length)];
+  const answerRight = () => Number(caseStudy[randomChar](first, second));
+  console.log(`Question: ${first} ${randomChar} ${second}`);
+  const answer = await promptly.prompt('Your answer: ', { retry: false });
+  checking(Number(answer), answerRight());
 };
