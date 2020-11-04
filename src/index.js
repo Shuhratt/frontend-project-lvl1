@@ -93,5 +93,5 @@ export const conditionGamesGcd = async () => {
   console.log(`Question: ${first} ${second}`);
   const answer = await promptly.prompt('Your answer: ', { retry: false });
 
-  checking(Number(answer), answerRightGcd);
+  checking(Number(answer) || answer, answerRightGcd);
 };
