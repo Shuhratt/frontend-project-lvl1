@@ -116,11 +116,11 @@ export const conditionGamesProgress = async () => {
   const ruleCountMax = ruleCountMin > 10 ? 10 : ruleCountMin;
 
   const listProgression = progression(stepProgression, ruleCountMax);
-  const randomElement = Math.floor(Math.random() * listProgression.length);
+  const randomIndex = Math.floor(Math.random() * listProgression.length);
 
-  const listProgressionForUser = listProgression.map((item, index) => (index === randomElement ? '..' : item));
+  const listProgressionForUser = listProgression.map((item, index) => (index === randomIndex ? '..' : item));
 
   console.log(`Question: ${listProgressionForUser.join(' ')}`);
   const answer = await promptly.prompt('Your answer: ', { retry: false });
-  checking(Number(answer), listProgression[randomElement]);
+  checking(Number(answer) || answer, listProgression[randomIndex]);
 };
