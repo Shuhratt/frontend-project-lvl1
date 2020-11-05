@@ -1,6 +1,6 @@
 # frontend-project-lvl1
 ![example workflow name](https://github.com/Shuhratt/frontend-project-lvl1/workflows/Super-Linter/badge.svg)
-<a href="https://codeclimate.com/github/codeclimate/codeclimate/maintainability"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a><br>
+<a href="https://codeclimate.com/github/Shuhratt/frontend-project-lvl1/maintainability"><img src="https://api.codeclimate.com/v1/badges/8830e15dabf740b7365b/maintainability" /></a><br>
 brain-even
 [![asciicast](https://asciinema.org/a/369636.svg)](https://asciinema.org/a/369636)
 brain-calc
