@@ -98,26 +98,29 @@ export const conditionGamesGcd = async () => {
 
 // Оболочка игры brain-progression
 
-const progression = (stepProgression, minCount) => {
+const progression = (stepProgression, maxCount) => {
   const progressionArr = [];
 
-  for (let i = stepProgression; i < 200; i += stepProgression) {
+  for (let i = stepProgression; i < 150; i += stepProgression) {
     progressionArr.push(i);
   }
-  return progressionArr.slice(0, minCount);
+
+  return progressionArr.splice(0, maxCount);
 };
 
 export const conditionGamesProgress = async () => {
-  const stepProgression = randomCount(10)
-  const countProgression = randomCount(10)
+  const stepProgression = randomCount(10);
+  const countProgression = randomCount(10);
 
-  const ruleCountProgression = countProgression > 5 ? countProgression : 5
-  const ruleCountProgression2 = ruleCountProgression > 10 ? 10 : ruleCountProgression
+  const ruleCountMin = countProgression > 5 ? countProgression : 5;
+  const ruleCountMax = ruleCountMin > 10 ? 10 : ruleCountMin;
 
-  console.log(stepProgression, ruleCountProgression2);
-  console.log(progression(stepProgression, ruleCountProgression2));
+  const listProgression = progression(stepProgression, ruleCountMax);
+  const randomElement = Math.floor(Math.random() * listProgression.length);
 
-  console.log('Question: 11');
+  const listProgressionForUser = listProgression.map((item, index) => (index === randomElement ? '..' : item));
+
+  console.log(`Question: ${listProgressionForUser.join(' ')}`);
   const answer = await promptly.prompt('Your answer: ', { retry: false });
-  // checking();
+  checking(Number(answer), listProgression[randomElement]);
 };
