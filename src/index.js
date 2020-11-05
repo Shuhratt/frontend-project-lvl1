@@ -15,7 +15,7 @@ const checking = (answerUser, answerRight) => {
 };
 
 // Рандомное число
-const randomCount = () => Math.floor(Math.random() * 100);
+const randomCount = (count) => Math.floor(Math.random() * count);
 
 // Четное ли  число для brain-games
 const isEven = (count) => (count % 2 === 0 ? 'yes' : 'no');
@@ -40,7 +40,7 @@ export const coreGames = async (textRules, conditions) => {
 
 // Оболочка игры brain-even
 export const conditionGamesEven = async () => {
-  const count = randomCount();
+  const count = randomCount(100);
   const countEven = isEven(count);
 
   console.log(`Question: ${count}`);
@@ -58,8 +58,8 @@ const caseStudy = {
 };
 
 export const conditionGamesCalc = async () => {
-  const first = randomCount();
-  const second = randomCount();
+  const first = randomCount(100);
+  const second = randomCount(100);
   const randomChar = chars[Math.floor(Math.random() * chars.length)];
   const answerRight = () => Number(caseStudy[randomChar](first, second));
 
@@ -85,8 +85,8 @@ const gcd = (first, second) => {
 };
 
 export const conditionGamesGcd = async () => {
-  const first = randomCount();
-  const second = randomCount();
+  const first = randomCount(100);
+  const second = randomCount(100);
 
   const answerRightGcd = gcd(first, second);
 
@@ -94,4 +94,25 @@ export const conditionGamesGcd = async () => {
   const answer = await promptly.prompt('Your answer: ', { retry: false });
 
   checking(Number(answer) || answer, answerRightGcd);
+};
+
+// Оболочка игры brain-progression
+
+const progression = (stepProgression) => {
+  const progressionArr = [];
+
+  for (let i = stepProgression; i < 100; i += stepProgression) {
+    progressionArr.push(i);
+  }
+  return progressionArr.slice(0, 10);
+};
+
+export const conditionGamesProgress = async () => {
+  const stepProgression = randomCount(10);
+  console.log(stepProgression);
+  console.log(progression(stepProgression));
+
+  console.log('Question: 11');
+  const answer = await promptly.prompt('Your answer: ', { retry: false });
+  // checking();
 };
