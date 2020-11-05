@@ -101,11 +101,11 @@ export const conditionGamesGcd = async () => {
 const progression = (stepProgression, maxCount) => {
   const progressionArr = [];
 
-  for (let i = stepProgression; i < 150; i += stepProgression) {
+  for (let i = stepProgression; progressionArr.length <= maxCount; i += stepProgression) {
     progressionArr.push(i);
   }
 
-  return progressionArr.splice(0, maxCount);
+  return progressionArr;
 };
 
 export const conditionGamesProgress = async () => {
