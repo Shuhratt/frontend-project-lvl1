@@ -98,19 +98,24 @@ export const conditionGamesGcd = async () => {
 
 // Оболочка игры brain-progression
 
-const progression = (stepProgression) => {
+const progression = (stepProgression, minCount) => {
   const progressionArr = [];
 
-  for (let i = stepProgression; i < 100; i += stepProgression) {
+  for (let i = stepProgression; i < 200; i += stepProgression) {
     progressionArr.push(i);
   }
-  return progressionArr.slice(0, 10);
+  return progressionArr.slice(0, minCount);
 };
 
 export const conditionGamesProgress = async () => {
-  const stepProgression = randomCount(10);
-  console.log(stepProgression);
-  console.log(progression(stepProgression));
+  const stepProgression = randomCount(10)
+  const countProgression = randomCount(10)
+
+  const ruleCountProgression = countProgression > 5 ? countProgression : 5
+  const ruleCountProgression2 = ruleCountProgression > 10 ? 10 : ruleCountProgression
+
+  console.log(stepProgression, ruleCountProgression2);
+  console.log(progression(stepProgression, ruleCountProgression2));
 
   console.log('Question: 11');
   const answer = await promptly.prompt('Your answer: ', { retry: false });
