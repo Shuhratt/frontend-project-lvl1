@@ -7,7 +7,8 @@ brain-calc
 [![asciicast](https://asciinema.org/a/369829.svg)](https://asciinema.org/a/369829)
 brain-gcd
 [![asciicast](https://asciinema.org/a/370385.svg)](https://asciinema.org/a/370385)
-
+brain-progression
+[![asciicast](https://asciinema.org/a/371150.svg)](https://asciinema.org/a/371150)
 <!-- 
 npm install npm -g
 Процесс выполнения этого будет устанавливать все необходимые каталоги.
