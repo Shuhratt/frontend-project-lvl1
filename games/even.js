@@ -1,6 +1,6 @@
 // Оболочка игры brain-even
 import promptly from 'promptly';
-import { randomCount, isEven, checking } from '../src/function.js';
+import { randomCount, isEven, verify } from '../src/function.js';
 
 export default async () => {
   const count = randomCount(100);
@@ -8,5 +8,5 @@ export default async () => {
 
   console.log(`Question: ${count}`);
   const answer = await promptly.prompt('Your answer: ', { retry: false });
-  checking(answer, countEven);
+  verify(answer, countEven);
 };

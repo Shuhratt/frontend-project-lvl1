@@ -1,7 +1,7 @@
 // Оболочка игры brain-gcd
 
 import promptly from 'promptly';
-import { checking, randomCount } from '../src/function.js';
+import { verify, randomCount } from '../src/function.js';
 
 const gcd = (first, second) => {
   const maxCount = Math.max(first, second);
@@ -25,5 +25,5 @@ export default async () => {
   console.log(`Question: ${first} ${second}`);
   const answer = await promptly.prompt('Your answer: ', { retry: false });
 
-  checking(Number(answer) || answer, answerRightGcd);
+  verify(Number(answer) || answer, answerRightGcd);
 };

@@ -1,6 +1,6 @@
 // Оболочка игры brain-calc
 import promptly from 'promptly';
-import { randomCount, checking } from '../src/function.js';
+import { randomCount, verify } from '../src/function.js';
 
 const chars = ['+', '-', '*'];
 
@@ -19,5 +19,5 @@ export default async () => {
   console.log(`Question: ${first} ${randomChar} ${second}`);
   const answer = await promptly.prompt('Your answer: ', { retry: false });
 
-  checking(Number(answer) || answer, answerRight());
+  verify(Number(answer) || answer, answerRight());
 };

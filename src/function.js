@@ -4,7 +4,7 @@ export const messageErrorShow = (answerUser, answerRight) => {
 };
 
 // Проверка ответа
-export const checking = (answerUser, answerRight) => {
+export const verify = (answerUser, answerRight) => {
   if (answerUser === answerRight) {
     console.log('Correct!');
   } else {
