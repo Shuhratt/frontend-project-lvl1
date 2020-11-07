@@ -66,7 +66,7 @@ export const conditionGamesCalc = async () => {
   console.log(`Question: ${first} ${randomChar} ${second}`);
   const answer = await promptly.prompt('Your answer: ', { retry: false });
 
-  checking(Number(answer), answerRight());
+  checking(Number(answer) || answer, answerRight());
 };
 
 // Оболочка игры brain-gcd
