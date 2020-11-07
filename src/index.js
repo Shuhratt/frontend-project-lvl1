@@ -27,8 +27,9 @@ export const coreGames = async (textRules, conditions) => {
   console.log(`Hello, ${name}!`);
   console.log(`${textRules}`);
 
+  const countSteps = 3
   try {
-    for (let i = 1; i <= 3; i += 1) {
+    for (let i = 1; i <= countSteps; i += 1) {
       await conditions();
     }
     await console.log(`Congratulations, ${name}!`);
@@ -112,8 +113,10 @@ export const conditionGamesProgress = async () => {
   const stepProgression = randomCount(10);
   const countProgression = randomCount(10);
 
-  const ruleCountMin = countProgression > 5 ? countProgression : 5;
-  const ruleCountMax = ruleCountMin > 10 ? 10 : ruleCountMin;
+  const minCount = 5
+  const maxCount = 10
+  const ruleCountMin = countProgression > minCount ? countProgression : minCount;
+  const ruleCountMax = ruleCountMin > maxCount ? maxCount : ruleCountMin;
 
   const listProgression = progression(stepProgression, ruleCountMax);
   const randomIndex = Math.floor(Math.random() * listProgression.length);
