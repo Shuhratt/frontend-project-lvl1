@@ -124,3 +124,27 @@ export const conditionGamesProgress = async () => {
   const answer = await promptly.prompt('Your answer: ', { retry: false });
   checking(Number(answer) || answer, listProgression[randomIndex]);
 };
+
+// Оболочка игры brain-prime
+
+// Натуральное ли  число для brain-prime
+const isPrime = (count) => {
+  let result = true;
+  for (let i = count - 1; i <= count && i > 1; i -= 1) {
+    if (count % i === 0) {
+      result = false;
+      break;
+    }
+  }
+
+  return result ? 'yes' : 'no';
+};
+
+export const conditionGamesPrime = async () => {
+  const count = randomCount(100);
+  const countPrime = isPrime(count);
+
+  console.log(`Question: ${count}`);
+  const answer = await promptly.prompt('Your answer: ', { retry: false });
+  checking(answer, countPrime);
+};
