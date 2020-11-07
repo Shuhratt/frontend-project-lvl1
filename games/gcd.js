@@ -1,7 +1,7 @@
 // Оболочка игры brain-gcd
 
-import promptly from "promptly";
-import {checking, randomCount} from "../src/function.js";
+import promptly from 'promptly';
+import { checking, randomCount } from '../src/function.js';
 
 const gcd = (first, second) => {
   const maxCount = Math.max(first, second);
@@ -16,7 +16,7 @@ const gcd = (first, second) => {
   return Number(Math.max(...listAllCount));
 };
 
-export const conditionGamesGcd = async () => {
+export default async () => {
   const first = randomCount(100);
   const second = randomCount(100);
 

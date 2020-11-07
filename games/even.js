@@ -1,8 +1,8 @@
 // Оболочка игры brain-even
-import promptly from "promptly";
+import promptly from 'promptly';
 import { randomCount, isEven, checking } from '../src/function.js';
 
-export const conditionGamesEven = async () => {
+export default async () => {
   const count = randomCount(100);
   const countEven = isEven(count);
 

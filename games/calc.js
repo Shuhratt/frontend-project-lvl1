@@ -1,6 +1,6 @@
 // Оболочка игры brain-calc
-import promptly from "promptly"
-import { randomCount, checking } from '../src/function.js'
+import promptly from 'promptly';
+import { randomCount, checking } from '../src/function.js';
 
 const chars = ['+', '-', '*'];
 
@@ -10,7 +10,7 @@ const caseStudy = {
   '*': (a, b) => a * b,
 };
 
-export const conditionGamesCalc = async () => {
+export default async () => {
   const first = randomCount(100);
   const second = randomCount(100);
   const randomChar = chars[Math.floor(Math.random() * chars.length)];

@@ -1,6 +1,6 @@
 // Оболочка игры brain-progression
-import promptly from "promptly";
-import {checking, randomCount} from "../src/function.js";
+import promptly from 'promptly';
+import { checking, randomCount } from '../src/function.js';
 
 const progression = (stepProgression, maxCount) => {
   const progressionArr = [];
@@ -12,12 +12,12 @@ const progression = (stepProgression, maxCount) => {
   return progressionArr;
 };
 
-export const conditionGamesProgress = async () => {
+export default async () => {
   const stepProgression = randomCount(10);
   const countProgression = randomCount(10);
 
-  const minCount = 5
-  const maxCount = 10
+  const minCount = 5;
+  const maxCount = 10;
   const ruleCountMin = countProgression > minCount ? countProgression : minCount;
   const ruleCountMax = ruleCountMin > maxCount ? maxCount : ruleCountMin;
 
@@ -30,4 +30,3 @@ export const conditionGamesProgress = async () => {
   const answer = await promptly.prompt('Your answer: ', { retry: false });
   checking(Number(answer) || answer, listProgression[randomIndex]);
 };
-

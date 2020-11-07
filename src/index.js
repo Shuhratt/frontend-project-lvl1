@@ -1,13 +1,13 @@
 import promptly from 'promptly';
 
 // Ядро игры
-export const coreGames = async (textRules, conditions) => {
+export default async (textRules, conditions) => {
   console.log('Welcome to the Brain Games!');
   const name = await promptly.prompt('May I have your name?');
   console.log(`Hello, ${name}!`);
   console.log(`${textRules}`);
 
-  const countSteps = 3
+  const countSteps = 3;
   try {
     for (let i = 1; i <= countSteps; i += 1) {
       await conditions();
