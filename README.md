@@ -1,28 +1,45 @@
-# Brain games
+# Игры разума
 ![Super-Linter](https://github.com/Shuhratt/frontend-project-lvl1/workflows/Super-Linter/badge.svg)
 <a href="https://codeclimate.com/github/Shuhratt/frontend-project-lvl1/maintainability"><img src="https://api.codeclimate.com/v1/badges/8830e15dabf740b7365b/maintainability" /></a>
 
-## Setup
+«Игры разума» — набор из пяти консольных игр, построенных по принципу популярных мобильных приложений для прокачки мозга. Каждая игра задает вопросы, на которые нужно дать правильные ответы. После трех правильных ответов считается, что игра пройдена. Неправильные ответы завершают игру и предлагают пройти ее заново. Игры:
+
+Калькулятор. Арифметические выражения, которые необходимо вычислить.
+Прогрессия. Поиск пропущенных чисел в последовательности чисел.
+Определение четного числа.
+Определение наибольшего общего делителя.
+Определение простого числа.
+
+## Установка
 ```
 $ make install
 ```
-## Run brain-calc
+## Запуск игры: "Калькулятор"
 ```
 $ brain-calc
 ```
 [![asciicast](https://asciinema.org/a/369829.svg)](https://asciinema.org/a/369829)
-## Run brain-gcd
-```
-$ brain-gcd
-```
-[![asciicast](https://asciinema.org/a/370385.svg)](https://asciinema.org/a/370385)
-## Run brain-progression
+
+## Запуск игры: "Арифметическая прогрессия"
 ```
 $ brain-progression
 ```
 [![asciicast](https://asciinema.org/a/371150.svg)](https://asciinema.org/a/371150)
 
-## Run brain-prime
+## Запуск игры: "Проверка на чётность"
+```
+$ brain-even
+```
+[![asciicast](https://asciinema.org/a/369636.svg)](https://asciinema.org/a/369636)
+
+## Запуск игры: "НОД"
+```
+$ brain-gcd
+```
+[![asciicast](https://asciinema.org/a/370385.svg)](https://asciinema.org/a/370385)
+
+
+## Запуск игры: "Простое ли число?"
 ```
 $ brain-prime
 ```
