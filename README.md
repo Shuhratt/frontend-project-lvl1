@@ -5,7 +5,7 @@
 
 ## Setup
 ```
-$ make installпше
+$ make install
 ```
 ## Run brain-calc
 ```
