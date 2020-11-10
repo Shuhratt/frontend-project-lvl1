@@ -1,7 +1,9 @@
 # Brain games
 ![example workflow name](https://github.com/Shuhratt/frontend-project-lvl1/workflows/Super-Linter/badge.svg)
-<a href="https://codeclimate.com/github/Shuhratt/frontend-project-lvl1/maintainability"><img src="https://api.codeclimate.com/v1/badges/8830e15dabf740b7365b/maintainability" /></a><br>
+<a href="https://codeclimate.com/github/Shuhratt/frontend-project-lvl1/maintainability"><img src="https://api.codeclimate.com/v1/badges/8830e15dabf740b7365b/maintainability" /></a>
 [![Test Coverage](https://api.codeclimate.com/v1/badges/dfc50c2d88cd46d069c1/test_coverage)](https://codeclimate.com/github/hexlet-boilerplates/nodejs-package/test_coverage)
+<br>
+
 ## Setup
 ```
 $ make install
