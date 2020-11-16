@@ -1,8 +1,8 @@
 // Оболочка игры brain-progression
 import promptly from 'promptly';
-import { verify, randomCount } from '../src/function.js';
+import { verify, showRandomNumber } from '../function.js';
 
-const progression = (stepProgression, maxCount) => {
+const buildNumbersProgression = (stepProgression, maxCount) => {
   const progressionArr = [];
 
   for (let i = stepProgression; progressionArr.length <= maxCount; i += stepProgression) {
@@ -13,15 +13,15 @@ const progression = (stepProgression, maxCount) => {
 };
 
 export default async () => {
-  const stepProgression = randomCount(10);
-  const countProgression = randomCount(10);
+  const stepProgression = showRandomNumber(10);
+  const countProgression = showRandomNumber(10);
 
-  const minCount = 5;
-  const maxCount = 10;
-  const ruleCountMin = countProgression > minCount ? countProgression : minCount;
-  const ruleCountMax = ruleCountMin > maxCount ? maxCount : ruleCountMin;
+  const minNumber = 5;
+  const maxNumber = 10;
+  const ruleNumberMin = countProgression > minNumber ? countProgression : minNumber;
+  const ruleNumberMax = ruleNumberMin > maxNumber ? maxNumber : ruleNumberMin;
 
-  const listProgression = progression(stepProgression, ruleCountMax);
+  const listProgression = buildNumbersProgression(stepProgression, ruleNumberMax);
   const randomIndex = Math.floor(Math.random() * listProgression.length);
 
   const listProgressionForUser = listProgression.map((item, index) => (index === randomIndex ? '..' : item));
