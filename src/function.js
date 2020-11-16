@@ -13,4 +13,4 @@ export const verify = (answerUser, answerRight) => {
 };
 
 // Рандомное число
-export const showRandomNumber = (count) => Math.floor(Math.random() * count);
+export const showRandomNumber = (count) => Math.ceil(Math.random() * count);
