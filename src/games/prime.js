@@ -3,10 +3,11 @@ import promptly from 'promptly';
 import { verify, showRandomNumber } from '../function.js';
 
 // Простое  ли  число
-const isPrime = (count) => {
+const isPrime = (number) => {
   let result = true;
-  for (let i = count - 1; i <= count && i > 1; i -= 1) {
-    if (count % i === 0) {
+
+  for (let i = 2; i < number; i += 1) {
+    if (number % i === 0) {
       result = false;
       break;
     }

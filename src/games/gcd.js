@@ -4,10 +4,10 @@ import promptly from 'promptly';
 import { verify, showRandomNumber } from '../function.js';
 
 const gcd = (first, second) => {
-  const maxNumber = Math.max(first, second);
+  const minNumber = Math.min(first, second);
   const listAllCount = [];
 
-  for (let i = 1; i <= maxNumber; i += 1) {
+  for (let i = 1; i <= minNumber; i += 1) {
     if (first % i === 0 && second % i === 0) {
       listAllCount.push(i);
     }
