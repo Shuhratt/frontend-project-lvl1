@@ -5,15 +5,15 @@ import { verify, showRandomNumber } from '../function.js';
 
 const gcd = (first, second) => {
   const minNumber = Math.min(first, second);
-  const listAllCount = [];
+  const listAllNumbers = [];
 
   for (let i = 1; i <= minNumber; i += 1) {
     if (first % i === 0 && second % i === 0) {
-      listAllCount.push(i);
+      listAllNumbers.push(i);
     }
   }
 
-  return Number(Math.max(...listAllCount));
+  return Number(Math.max(...listAllNumbers));
 };
 
 export default async () => {
