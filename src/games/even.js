@@ -6,9 +6,9 @@ import { makeRandomNumber, verify } from '../function.js';
 const makeEvenNumber = (count) => (count % 2 === 0 ? 'yes' : 'no');
 
 export default async () => {
-  const count = makeRandomNumber(100);
-  console.log(`Question: ${count}`);
+  const number = makeRandomNumber(100);
+  console.log(`Question: ${number}`);
   const answer = await promptly.prompt('Your answer: ', { retry: false });
-  const rightAnswer = makeEvenNumber(count);
+  const rightAnswer = makeEvenNumber(number);
   verify(answer, rightAnswer);
 };

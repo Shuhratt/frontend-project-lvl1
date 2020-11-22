@@ -17,10 +17,10 @@ const makePrimeNumber = (number) => {
 };
 
 export default async () => {
-  const count = makeRandomNumber(100);
-  const rightPrimeNumber = makePrimeNumber(count);
+  const number = makeRandomNumber(100);
+  const rightPrimeNumber = makePrimeNumber(number);
 
-  console.log(`Question: ${count}`);
+  console.log(`Question: ${number}`);
   const answer = await promptly.prompt('Your answer: ', { retry: false });
   verify(answer, rightPrimeNumber);
 };

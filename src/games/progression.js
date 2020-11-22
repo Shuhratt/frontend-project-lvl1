@@ -3,13 +3,13 @@ import promptly from 'promptly';
 import { verify, makeRandomNumber } from '../function.js';
 
 const buildNumbersProgression = (firstNumber, stepProgression, maxCount) => {
-  const progressionArr = [];
+  const progressionList = [];
 
-  for (let i = firstNumber; progressionArr.length <= maxCount; i += stepProgression) {
-    progressionArr.push(i);
+  for (let i = firstNumber; progressionList.length <= maxCount; i += stepProgression) {
+    progressionList.push(i);
   }
 
-  return progressionArr;
+  return progressionList;
 };
 
 export default async () => {
