@@ -19,10 +19,10 @@ export default async () => {
 
   const minNumber = 5;
   const maxNumber = 10;
-  const acceptNumberMin = maxNumberProgression > minNumber ? maxNumberProgression : minNumber;
-  const acceptNumberMax = acceptNumberMin > maxNumber ? maxNumber : acceptNumberMin;
+  const acceptanceNumberMin = maxNumberProgression > minNumber ? maxNumberProgression : minNumber;
+  const acceptanceNumberMax = acceptanceNumberMin > maxNumber ? maxNumber : acceptanceNumberMin;
 
-  const listProgression = buildNumbersProgression(startNum, stepProgression, acceptNumberMax);
+  const listProgression = buildNumbersProgression(startNum, stepProgression, acceptanceNumberMax);
   const randomIndex = Math.floor(Math.random() * listProgression.length);
 
   const listProgressionForUser = listProgression.map((item, index) => (index === randomIndex ? '..' : item));
