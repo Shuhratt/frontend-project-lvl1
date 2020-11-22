@@ -2,10 +2,10 @@
 import promptly from 'promptly';
 import { verify, makeRandomNumber } from '../function.js';
 
-const buildNumbersProgression = (stepProgression, maxCount) => {
+const buildNumbersProgression = (firstNumber, stepProgression, maxCount) => {
   const progressionArr = [];
 
-  for (let i = stepProgression; progressionArr.length <= maxCount; i += stepProgression) {
+  for (let i = firstNumber; progressionArr.length <= maxCount; i += stepProgression) {
     progressionArr.push(i);
   }
 
@@ -13,15 +13,16 @@ const buildNumbersProgression = (stepProgression, maxCount) => {
 };
 
 export default async () => {
+  const startNum = makeRandomNumber(10);
   const stepProgression = makeRandomNumber(10);
-  const countProgression = makeRandomNumber(10);
+  const maxNumberProgression = makeRandomNumber(10);
 
   const minNumber = 5;
   const maxNumber = 10;
-  const ruleNumberMin = countProgression > minNumber ? countProgression : minNumber;
-  const ruleNumberMax = ruleNumberMin > maxNumber ? maxNumber : ruleNumberMin;
+  const acceptNumberMin = maxNumberProgression > minNumber ? maxNumberProgression : minNumber;
+  const acceptNumberMax = acceptNumberMin > maxNumber ? maxNumber : acceptNumberMin;
 
-  const listProgression = buildNumbersProgression(stepProgression, ruleNumberMax);
+  const listProgression = buildNumbersProgression(startNum, stepProgression, acceptNumberMax);
   const randomIndex = Math.floor(Math.random() * listProgression.length);
 
   const listProgressionForUser = listProgression.map((item, index) => (index === randomIndex ? '..' : item));
