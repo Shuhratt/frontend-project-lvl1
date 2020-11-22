@@ -1,6 +1,6 @@
 // Оболочка игры brain-calc
 import promptly from 'promptly';
-import { showRandomNumber, verify } from '../function.js';
+import { makeRandomNumber, verify } from '../function.js';
 
 const mathSigns = ['+', '-', '*'];
 
@@ -11,8 +11,8 @@ const mathSignsOperation = {
 };
 
 export default async () => {
-  const first = showRandomNumber(100);
-  const second = showRandomNumber(100);
+  const first = makeRandomNumber(100);
+  const second = makeRandomNumber(100);
   const randomChar = mathSigns[Math.floor(Math.random() * mathSigns.length)];
   const answerRight = Number(mathSignsOperation[randomChar](first, second));
 

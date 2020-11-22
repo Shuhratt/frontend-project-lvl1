@@ -1,7 +1,7 @@
 // Оболочка игры brain-gcd
 
 import promptly from 'promptly';
-import { verify, showRandomNumber } from '../function.js';
+import { verify, makeRandomNumber } from '../function.js';
 
 const gcd = (first, second) => {
   const minNumber = Math.min(first, second);
@@ -17,8 +17,8 @@ const gcd = (first, second) => {
 };
 
 export default async () => {
-  const first = showRandomNumber(100);
-  const second = showRandomNumber(100);
+  const first = makeRandomNumber(100);
+  const second = makeRandomNumber(100);
 
   const answerRightGcd = gcd(first, second);
 

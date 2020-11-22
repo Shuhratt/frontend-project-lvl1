@@ -1,6 +1,6 @@
 // Оболочка игры brain-progression
 import promptly from 'promptly';
-import { verify, showRandomNumber } from '../function.js';
+import { verify, makeRandomNumber } from '../function.js';
 
 const buildNumbersProgression = (stepProgression, maxCount) => {
   const progressionArr = [];
@@ -13,8 +13,8 @@ const buildNumbersProgression = (stepProgression, maxCount) => {
 };
 
 export default async () => {
-  const stepProgression = showRandomNumber(10);
-  const countProgression = showRandomNumber(10);
+  const stepProgression = makeRandomNumber(10);
+  const countProgression = makeRandomNumber(10);
 
   const minNumber = 5;
   const maxNumber = 10;
