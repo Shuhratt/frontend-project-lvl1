@@ -6,6 +6,10 @@ import { verify, makeRandomNumber } from '../function.js';
 const isPrime = (number) => {
   let result = true;
 
+  if (number === 1) {
+    return false;
+  }
+
   for (let i = 2; i < number; i += 1) {
     if (number % i === 0) {
       result = false;
