@@ -10,12 +10,12 @@ const buildProgression = (firstNumber, stepProgression, maxLength) => {
   return progressionList;
 };
 
-const fundLengthProgression = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+const findLengthProgression = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
 export default async () => {
   const minLengthDefault = 5; // Минимальная длина по умолчанию
   const maxLengthDefault = 10; // Максимальная длина по умолчанию
-  const maxLengthProgression = fundLengthProgression(minLengthDefault, maxLengthDefault);
+  const maxLengthProgression = findLengthProgression(minLengthDefault, maxLengthDefault);
 
   const firstNumber = makeRandomNumber(10); // Первое число прогрессии
   const stepProgression = makeRandomNumber(10); // Шаг прогрессии
