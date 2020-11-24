@@ -2,31 +2,25 @@
 import promptly from 'promptly';
 import { verify, makeRandomNumber } from '../function.js';
 
-const buildProgression = (minNumber, stepProgression, maxLengthNumber) => {
+const buildProgression = (firstNumber, stepProgression, maxLength) => {
   const progressionList = [];
-
-  for (let i = minNumber; progressionList.length <= maxLengthNumber; i += stepProgression) {
+  for (let i = firstNumber; progressionList.length <= maxLength; i += stepProgression) {
     progressionList.push(i);
   }
-
   return progressionList;
 };
 
+const fundLengthProgression = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+
 export default async () => {
-  const minLengthProgression = 5; // Минимальная длина
-  const maxLengthProgression = 10; // Максимальная длина
+  const minLengthDefault = 5; // Минимальная длина по умолчанию
+  const maxLengthDefault = 10; // Максимальная длина по умолчанию
+  const maxLengthProgression = fundLengthProgression(minLengthDefault, maxLengthDefault);
 
-  let firstNumber = makeRandomNumber(10); // Первое число прогрессии
+  const firstNumber = makeRandomNumber(10); // Первое число прогрессии
   const stepProgression = makeRandomNumber(10); // Шаг прогрессии
-  let maxLengthProgressionRandom = makeRandomNumber(10); // Максимальная длина прогрессии
 
-  console.log(firstNumber, maxLengthProgressionRandom);
-
-  firstNumber = firstNumber > minLengthProgression ? firstNumber : minLengthProgression;
-  maxLengthProgressionRandom = maxLengthProgressionRandom > maxLengthProgression ? maxLengthProgressionRandom : maxLengthProgression;
-
-  console.log(firstNumber, maxLengthProgressionRandom);
-  const rightAnswer = buildProgression(firstNumber, stepProgression, maxLengthProgressionRandom);
+  const rightAnswer = buildProgression(firstNumber, stepProgression, maxLengthProgression);
   const randomIndex = Math.floor(Math.random() * rightAnswer.length);
 
   const listProgressionForUser = rightAnswer.map((item, index) => (index === randomIndex ? '..' : item));
