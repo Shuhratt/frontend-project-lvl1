@@ -3,7 +3,7 @@ import promptly from 'promptly';
 import { verify, makeRandomNumber } from '../function.js';
 
 // Простое  ли  число
-const makePrimeNumber = (number) => {
+const isPrime = (number) => {
   let result = true;
 
   for (let i = 2; i < number; i += 1) {
@@ -13,14 +13,14 @@ const makePrimeNumber = (number) => {
     }
   }
 
-  return result ? 'yes' : 'no';
+  return result;
 };
 
 export default async () => {
   const number = makeRandomNumber(100);
-  const rightPrimeNumber = makePrimeNumber(number);
+  const rightAnswer = isPrime(number) ? 'yes' : 'no';
 
   console.log(`Question: ${number}`);
   const answer = await promptly.prompt('Your answer: ', { retry: false });
-  verify(answer, rightPrimeNumber);
+  verify(answer, rightAnswer);
 };

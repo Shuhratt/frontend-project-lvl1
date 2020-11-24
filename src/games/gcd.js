@@ -20,10 +20,10 @@ export default async () => {
   const first = makeRandomNumber(100);
   const second = makeRandomNumber(100);
 
-  const answerRightGcd = gcd(first, second);
+  const rightAnswer = gcd(first, second);
 
   console.log(`Question: ${first} ${second}`);
   const answer = await promptly.prompt('Your answer: ', { retry: false });
 
-  verify(Number(answer) || answer, answerRightGcd);
+  verify(Number(answer) || answer, rightAnswer);
 };
